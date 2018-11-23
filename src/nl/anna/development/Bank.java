@@ -2,21 +2,16 @@ package nl.anna.development;
 
 public class Bank {
 	private boolean geopend;
-	private Rekening rekening;
-	private int saldo;
-	private int balans;
-	
-	
+	private Klant klant;
 	
 	void welkomHeten(Klant klant){
+		this.klant = klant;
 		System.out.println("Welkom  " + klant.naam);
-}
-	
+	}
 	
 	 void openen() {
 		geopend = true;
-		
-
+		System.out.println("Bank is geopend");
 	}
 	
 	 void sluiten() {
@@ -24,28 +19,25 @@ public class Bank {
 	}
 
 	
-	 Rekening openRekening() {
-		if (rekening!=null) {
-			rekening = new Rekening();
-		}
-		return rekening;
+	 void openRekening(Klant klant) {
+		System.out.println("Wilt u bij ons rekening openen?");
+		System.out.println("Ja graag.");
+		Rekening rekening = new Rekening("987654321", 500);
+		klant.rekening = rekening;
+		
+		System.out.println(" Het is gelukt: U rekeningnummer is: " 
+				+ rekening.rekeningnummer);
+			
 	}
 
 
-		void geldStorten( int bedrag) {
-			 saldo += bedrag;
-			 	 
-		 }
-		 void geldOpnemen(int bedrag) {
-			 saldo-= bedrag;
-		 }
-		 void geldOvermaken(int bedrag, Rekening rekening) {
-			 saldo-= bedrag;
-			
-			
-		 }
+		void geldStorten(Klant klant) {
+			System.out.println("U stort nu 80 euro op uw bankrekening");
+			klant.rekening.storten(80);
+
+	
 	
 		
 	}
 	
-
+}

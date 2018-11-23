@@ -2,8 +2,12 @@ package nl.anna.development;
 
 public class Klant {
 	String naam;
-	String rekeningnummer;
-	int bedrag = 500;
+	Rekening rekening ;
+
+
 	
+	public Klant(String naam) {
+		this.naam = "Aram";
+	}
 
 }
